@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <inset android:inset="4dp">
+            <shape android:shape="oval">
+                <solid android:color="#FFFFFF"/>
+            </shape>
+        </inset>
+    </item>
+
+    <item>
+        <inset android:inset="6dp">
+            <shape android:shape="oval">
+                <solid android:color="#80FFFFFF"/>
+            </shape>
+        </inset>
+    </item>
+</selector>

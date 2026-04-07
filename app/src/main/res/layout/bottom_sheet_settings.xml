@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@android:color/white">
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Setări Cont"
+    android:textSize="22sp"
+    android:textStyle="bold"
+    android:textColor="@android:color/black"
+    android:layout_marginBottom="28dp"/>
+
+
+    <Button
+        android:id="@+id/btn_logout_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Deconectare (Logout)"
+        android:backgroundTint="#D32F2F"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+    <Button
+        android:id="@+id/btn_login_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Autentificare (Login)"
+        android:backgroundTint="#2a6f82"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+</LinearLayout>

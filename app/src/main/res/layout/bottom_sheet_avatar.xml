@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Schimbă Poza de Profil"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:id="@+id/btn_pick_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📸 Alege din Galerie"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <TextView
+        android:id="@+id/btn_pick_predefined"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🎨 Alege o poză predefinită"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:layout_marginTop="8dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"/>
+</LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filtrează Locațiile"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selectează Județul:"
+        android:textStyle="bold"
+        android:textColor="#555555"
+        android:layout_marginBottom="8dp"/>
+
+    <Spinner
+        android:id="@+id/spinner_county"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/google_white_bg"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selectează Categoria:"
+        android:textStyle="bold"
+        android:textColor="#555555"
+        android:layout_marginBottom="8dp"/>
+
+    <Spinner
+        android:id="@+id/spinner_category"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/google_white_bg"
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/btn_apply_filter"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Aplică Filtrele"
+        android:backgroundTint="#00ADC7"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_reset_filter"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Resetează"
+        android:backgroundTint="#EEEEEE"
+        android:textColor="#333333"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>
