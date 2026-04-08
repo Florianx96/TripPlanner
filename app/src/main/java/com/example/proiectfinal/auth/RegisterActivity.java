@@ -14,6 +14,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
+import com.example.proiectfinal.utils.EmailSender;
+import java.util.Random;
 
 import com.example.proiectfinal.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -118,7 +120,7 @@ public class RegisterActivity extends AppCompatActivity {
                 return;
             }
             //daca nu exista inca cont -> cream cont
-            createAccount(email, pass , name);
+            sendVerificationEmail(email, pass, name);
 
         }).addOnFailureListener(e -> {
             Toast.makeText(this, "Eroare la verifcare email: " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -126,28 +128,35 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
-    private void createAccount(String email, String pass, String name) {
-        auth.createUserWithEmailAndPassword(email, pass)
-                .addOnSuccessListener(authResult -> {
-                    // Contul s-a creat! Acum atasam Numele de Utilizator
-                    FirebaseUser user = authResult.getUser();
-                    if (user != null) {
-                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                .setDisplayName(name)
-                                .build();
+    private void sendVerificationEmail(String email, String pass, String name) {
+        Toast.makeText(this, "Se trimite codul pe email... Te rugăm să aștepți.", Toast.LENGTH_SHORT).show();
+        btnRegister.setEnabled(false); // Dezactivăm butonul să nu dea click de 10 ori
 
-                        user.updateProfile(profileUpdates).addOnCompleteListener(updateTask -> {
-                            // Dupa ce am salvat si numele, deconectam userul temporar si il trimitem la Login
-                            auth.signOut();
+        // Generăm un cod random de 6 cifre
+        String generatedCode = String.format("%06d", new Random().nextInt(999999));
 
-                            Toast.makeText(this, "Cont creat cu succes!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(this, LoginActivity.class));
-                            finish();
-                        });
-                    }
-                })
-                .addOnFailureListener(e ->
-                        Toast.makeText(this, "Eroare creare cont: " + e.getMessage(), Toast.LENGTH_SHORT).show()
-                );
+        // Trimitem emailul folosind clasa noastra utilitara
+        EmailSender.sendVerificationCode(email, generatedCode, new EmailSender.EmailCallback() {
+            @Override
+            public void onSuccess() {
+                btnRegister.setEnabled(true);
+                Toast.makeText(RegisterActivity.this, "Codul a fost trimis! Verifică email-ul.", Toast.LENGTH_LONG).show();
+
+                // Pasăm toate datele către ecranul de verificare
+                Intent intent = new Intent(RegisterActivity.this, VerifyEmailActivity.class);
+                intent.putExtra("email", email);
+                intent.putExtra("password", pass);
+                intent.putExtra("name", name);
+                intent.putExtra("verificationCode", generatedCode);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onFailure(String error) {
+                btnRegister.setEnabled(true);
+                Toast.makeText(RegisterActivity.this, "Eroare la trimitere email: " + error, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

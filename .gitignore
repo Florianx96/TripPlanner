@@ -16,3 +16,4 @@ local.properties
 # Securitate parole si configuratie Firebase
 app/src/main/res/values/secrets.xml
 app/google-services.json
+**/EmailSender.java

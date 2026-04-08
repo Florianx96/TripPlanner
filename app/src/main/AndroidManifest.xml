@@ -47,6 +47,8 @@
         <activity
             android:name=".auth.RegisterActivity"
             android:exported="false" />
+        <activity android:name=".auth.VerifyEmailActivity"
+            android:exported="false" />
         <activity
             android:name=".auth.LoginActivity"
             android:exported="false" />
