@@ -28,10 +28,6 @@
             android:name=".views.TripDetailsActivity" />
         <activity
             android:name=".views.TripMapActivity" />
-        <activity
-            android:name=".views.WizardContainerActivity" />
-        <activity
-            android:name=".views.AiResultActivity" />
 
         <activity
             android:name=".utils.Splash"
