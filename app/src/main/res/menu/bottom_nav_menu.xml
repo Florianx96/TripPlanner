@@ -9,6 +9,10 @@
         android:icon="@drawable/ic_plan"
         android:title="Plan" />
     <item
+        android:id="@+id/nav_ai"
+        android:icon="@drawable/ic_ai_spark"
+        android:title="AI Plan" />
+    <item
         android:id="@+id/nav_favorites"
         android:icon="@drawable/ic_favorite_location"
         android:title="Favorite" />

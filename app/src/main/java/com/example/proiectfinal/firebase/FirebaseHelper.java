@@ -67,4 +67,30 @@ public class FirebaseHelper {
                     }
                 });
     }
+
+    // Metodă nouă pentru AI — filtrează locațiile după mai multe categorii
+    public void readLocationsByCategories(String[] categories, final LocationsCallback callback) {
+        // Convertim array-ul în List pentru Firestore
+        java.util.List<String> categoriesList = java.util.Arrays.asList(categories);
+
+        db.collection("locations")
+                .whereIn("category", categoriesList)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            List<Location> locationList = new ArrayList<>();
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Location loc = document.toObject(Location.class);
+                                locationList.add(loc);
+                            }
+                            callback.onCallback(locationList);
+                        } else {
+                            callback.onFailure(task.getException() != null
+                                    ? task.getException().getMessage() : "Eroare Firebase");
+                        }
+                    }
+                });
+    }
 }

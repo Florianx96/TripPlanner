@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = new HomeFragment();
             } else if (itemId == R.id.nav_trip_plan) {
                 selectedFragment = new TripPlanFragment();
+            } else if (itemId == R.id.nav_ai) {
+                selectedFragment = new AiIntroFragment();
             } else if (itemId == R.id.nav_favorites) {
                 selectedFragment = new FavoritesFragment();
             }
